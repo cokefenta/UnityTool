@@ -11,6 +11,7 @@ public class GenerateFolders : MonoBehaviour
     private static void CreateAllFolder()
     {
         GenerateFolder();
+        Debug.Log("Folders Created"); 
     }
     private static void GenerateFolder()
     {
