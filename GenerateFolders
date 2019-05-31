@@ -1,0 +1,34 @@
+using UnityEngine;
+using System.Collections;
+using System.IO;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+public class GenerateFolders : MonoBehaviour
+{
+#if UNITY_EDITOR
+    [MenuItem("Tools/CreateFolder")]
+    private static void CreateAllFolder()
+    {
+        GenerateFolder();
+        Debug.Log("Folders Created");
+    }
+    private static void GenerateFolder()
+    {
+        // 文件路径 
+        string _path = Application.dataPath + "/";
+        Directory.CreateDirectory(_path + "_Doc");
+        Directory.CreateDirectory(_path + "_Images");
+        Directory.CreateDirectory(_path + "_Materials");
+        Directory.CreateDirectory(_path + "_Models");
+        Directory.CreateDirectory(_path + "_Prefabs");
+        Directory.CreateDirectory(_path + "_Scenes");
+        Directory.CreateDirectory(_path + "_Scripts");
+        Directory.CreateDirectory(_path + "AssetBundles");
+        Directory.CreateDirectory(_path + "Plugins");
+        Directory.CreateDirectory(_path + "Resources");
+        Directory.CreateDirectory(_path + "Editor");
+        AssetDatabase.Refresh();
+    }
+#endif
+}
